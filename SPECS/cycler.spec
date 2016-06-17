@@ -8,8 +8,10 @@ License: BSD
 URL: https://pypi.python.org/pypi/Cycler
 Source0: %{name}-%{version}.tar.gz
 
-BuildRequires:
-Requires:
+BuildRequires: python >= 2.6
+BuildRequires: python <= 3
+Requires: python >= 2.6
+Requires: python <= 3
 
 %description
 Composable cycle class used for constructing style-cycles
@@ -18,14 +20,18 @@ Composable cycle class used for constructing style-cycles
 %setup -q
 
 %build
-%configure
-make %{?_smp_mflags}
+rm -rf $RPM_BUILD_ROOT
+%{__python2} setup.py build
 
 %install
-make install DESTDIR=%{buildroot}
+%{__python2} setup.py install --skip-build --root=$RPM_BUILD_ROOT
+
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %files
-%doc
+%doc %{python2_sitelib}/cycler-%{version}-py2.7.egg-info/*
+%{python2_sitelib}/*
 
 %changelog
 * Thu Jan 16 2016 Andrew Duty <tisbeok@gmail.com> - 0.10.0-1
