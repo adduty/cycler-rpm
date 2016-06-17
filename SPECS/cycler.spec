@@ -31,7 +31,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %doc %{python2_sitelib}/cycler-%{version}-py2.7.egg-info/*
-%{python2_sitelib}/*
+%{python2_sitelib}/cycler.py*
 
 %changelog
 * Thu Jan 16 2016 Andrew Duty <tisbeok@gmail.com> - 0.10.0-1
