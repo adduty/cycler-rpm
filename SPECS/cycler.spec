@@ -34,5 +34,5 @@ rm -rf $RPM_BUILD_ROOT
 %{python2_sitelib}/cycler.py*
 
 %changelog
-* Thu Jan 16 2016 Andrew Duty <tisbeok@gmail.com> - 0.10.0-1
+* Thu Jun 16 2016 Andrew Duty <tisbeok@gmail.com> - 0.10.0-1
 - Initial package.
